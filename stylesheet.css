@@ -1,0 +1,6 @@
+.cell {
+  border-style:solid;
+  height:40px;
+  width:40px;
+  display:inline-block
+}
