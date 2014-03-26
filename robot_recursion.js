@@ -5,10 +5,7 @@ var Robot = {
     this.delay = 0
     return this
   },
-  checkPosition: function(x, y, board, callback){
-    if (callback){
-      callback()
-    }
+  checkPosition: function(x, y, board){
     x = x,
     y = y
     // console.log(board)
@@ -18,18 +15,16 @@ var Robot = {
     if (x === board.goal[0] && y === board.goal[1]) {
       console.log("found the goal!")
       this.animate(x,y, "blue")
+      this.animate(x,y, "white")
       return 1
     }
     else if (board[y] && board[y][x]) {
       console.log("still lookin")
       this.animate(x,y, "lightBlue")
+      var valueFromRecursions =  (this.checkPosition(x +1, y, board) + this.checkPosition(x, y + 1, board))
       this.animate(x,y,"white")
-      var thiz = this
-      var callback = function(){
-        thiz.animate(x,y,"white")
+      return valueFromRecursions
       }
-      return (this.checkPosition(x +1, y, board, callback) + this.checkPosition(x, y + 1, board))
-    }
     else {
       console.log("hit the wall")  
       return 0
