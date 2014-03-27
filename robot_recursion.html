@@ -5,7 +5,12 @@
 <LINK href="stylesheet.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div class="container">
+  <form>
+  grid width: <input type="text" name="grid-width"><br>
+  grid height: <input type="text" name="grid-height"><br>
+  <input type="button" value="construct grid" id="grid-size-submit">
+  </form>
+  <div id="board">
     <div class="row">
       <div class="cell" id="0,0">
       </div>
@@ -41,6 +46,9 @@
       </div>
       <div class="cell" id="2,4">
       </div>
+    </div><br>
+    <div id="results">
+      Total number of paths = <span id="answer">0</span>
     </div>
   </div>
 

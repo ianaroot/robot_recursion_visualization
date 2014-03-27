@@ -2,5 +2,7 @@
   border-style:solid;
   height:40px;
   width:40px;
-  display:inline-block
+  display:inline-block;
+  margin: 4px;
+  background-size: 100%;
 }
