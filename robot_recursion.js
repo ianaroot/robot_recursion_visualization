@@ -66,12 +66,12 @@ Board = {
     this.matrix.goal = [width - 1, height - 1]
     return this
   },
-  draw: function(){
-    
-  },
-  cellHtml: '<div class="cell" id="0,0"></div>',
 
-  rowHtml: '<div class="row"></div>'
+  rowHtml: '<div class="row"></div>',
+
+  cellBuilder: function(column, row){
+    return  '<div class="cell" id="' + column + ',' + row +'"></div>'
+  }
 }
 
 setBackground = function(element, color){
@@ -91,9 +91,36 @@ setBackground = function(element, color){
 }
 
 
+
 var board = Board.initialize(5,3)
 var bot = new Robot
 
+function buildGrid() {
+  var gridWidth = parseInt(document.getElementById('grid-width-input').value)
+  var gridHeight = parseInt(document.getElementById('grid-height-input').value)
+  var board = Board.initialize(gridWidth, gridHeight)
+  var grid = document.getElementById('grid')
+  console.log(gridHeight)
+  grid.innerHTML = ""
+  for (var i = 0; i < gridHeight; i ++) {
+    grid.innerHTML += board.rowHtml
+  }
+  rows = document.getElementsByClassName('row')
+  for (var i = 0; i < gridHeight; i ++)
+    for ( var j = 0; j < gridWidth; j ++) {
+      rows[i].innerHTML += (board.cellBuilder(i,j))
+    }
+}
+
+function runRecursion(){
+  bot.numberOfPathsToGoal(board.matrix)
+}
+
 window.onload = function(){
-  bot.numberOfPathsToGoal(board.matrix)  
+  var gridSizeButton = document.getElementById('grid-size-submit')
+  gridSizeButton.addEventListener("click", buildGrid, false)
+  var startButton = document.getElementById('start')
+  startButton.addEventListener("click", runRecursion, false)
+  // bot.numberOfPathsToGoal(board.matrix)  
+
 }

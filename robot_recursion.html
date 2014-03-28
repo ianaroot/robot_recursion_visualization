@@ -6,11 +6,12 @@
 </head>
 <body>
   <form>
-  grid width: <input type="text" name="grid-width"><br>
-  grid height: <input type="text" name="grid-height"><br>
+  grid width: <input type="text" name="grid-width" id="grid-width-input"><br>
+  grid height: <input type="text" name="grid-height" id="grid-height-input"><br>
   <input type="button" value="construct grid" id="grid-size-submit">
   </form>
-  <div id="board">
+  <input type="button" value="run recursion" id="start">
+  <div id="grid">
     <div class="row">
       <div class="cell" id="0,0">
       </div>
@@ -47,9 +48,9 @@
       <div class="cell" id="2,4">
       </div>
     </div><br>
-    <div id="results">
-      Total number of paths = <span id="answer">0</span>
-    </div>
+  </div>
+  <div id="results">
+    Total number of paths = <span id="answer">0</span>
   </div>
 
 </body>  
