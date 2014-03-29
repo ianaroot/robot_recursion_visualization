@@ -138,23 +138,26 @@ function runRecursion(){
 
 }
 function switchCell(cell){
-  if (cell.id != "0,0" && cell.id != board.matrix.goal.toString()){
+  if (!cell.className.indexOf("cell")){
 
-    var cellY = cell.id[0]
-    var cellX = cell.id[2]
-    console.log(cellY,cellX)
-    if (cell.className.indexOf("off") != -1){
-      cell.className = "cell"
-      board.matrix[cellY][cellX] = 1
+    if (cell.id != "0,0" && cell.id != board.matrix.goal.toString()){
+
+      var cellY = cell.id[0]
+      var cellX = cell.id[2]
+      console.log(cellY,cellX)
+      if (cell.className.indexOf("off") != -1){
+        cell.className = "cell"
+        board.matrix[cellY][cellX] = 1
+      }
+      else
+      {
+        cell.className = "cell off"
+        board.matrix[cellY][cellX] = 0
+      }
     }
-    else
-    {
-      cell.className = "cell off"
-      board.matrix[cellY][cellX] = 0
+    else {
+      alert("you can't turn off the that cell")
     }
-  }
-  else {
-    alert("you can't turn off the that cell")
   }
 }
 
