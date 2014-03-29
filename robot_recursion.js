@@ -145,13 +145,13 @@ function switchCell(cell){
       var cellY = cell.id[0]
       var cellX = cell.id[2]
       console.log(cellY,cellX)
-      if (cell.className.indexOf("off") != -1){
-        cell.className = "cell"
+      if (cell.style.backgroundColor == "black"){
+        cell.style.backgroundColor = "white"
         board.matrix[cellY][cellX] = 1
       }
       else
       {
-        cell.className = "cell off"
+        cell.style.backgroundColor = "black"
         board.matrix[cellY][cellX] = 0
       }
     }
