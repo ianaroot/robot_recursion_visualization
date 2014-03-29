@@ -24,7 +24,7 @@ function Robot(){
       else if (board[y] && board[y][x]) {
         
         this.animate(x,y, pic)
-        var valueFromRecursions =  (this.checkPosition(x +1, y, board, cellHistory, "right") + this.checkPosition(x, y + 1, board, cellHistory, "down") + this.checkPosition(x - 1, y, board, cellHistory, "left") + this.checkPosition(x, y - 1, board, cellHistory, "start"))
+        var valueFromRecursions =  (this.checkPosition(x +1, y, board, cellHistory, "right") + this.checkPosition(x, y + 1, board, cellHistory, "down") + this.checkPosition(x - 1, y, board, cellHistory, "left") + this.checkPosition(x, y - 1, board, cellHistory, "up"))
         this.animate(x,y,"white")
         return valueFromRecursions
         }
